@@ -1,28 +1,41 @@
 // Import the LitElement base class and html helper function
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
+
+// Shared Styles import if your component is inheriting any styles
+//import { SharedStyles } from '../styles/shared-styles.js';
 
 // Extend the LitElement base class
-class MyElement extends LitElement {
+class ExampleElement extends LitElement {
 
-  /**
-   * Implement `render` to define a template for your element.
-   *
-   * You must provide an implementation of `render` for any element
-   * that uses LitElement as a base class.
-   */
+  /* If you're using a styles getter, 'css' must be extended from 'lit-element' */
+  static get styles() {
+    return [
+      //SharedStyles,
+      css`
+        :host {
+          display: block;
+        }
+      `
+    ];
+  }
+
+  static get properties() {
+    return {
+      exampleProp: { type: String },
+    };
+  }
+
+  constructor() {
+    super();
+    this.exampleProp = this.tagName.toLowerCase();
+  }
+
   render(){
-    /**
-     * `render` must return a lit-html `TemplateResult`.
-     *
-     * To create a `TemplateResult`, tag a JavaScript template literal
-     * with the `html` helper function:
-     */
     return html`
-      <!-- template content -->
-      <p>A paragraph</p>
+      <p>${this.exampleProp} works</p>
     `;
   }
 }
-// Register the new element with the browser.
-customElements.define('my-element', MyElement);
+
+customElements.define('example-element', ExampleElement);
 

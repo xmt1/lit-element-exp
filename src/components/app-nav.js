@@ -26,10 +26,10 @@ class AppNav extends LitElement {
 
         nav {
           height: 64px;
+          background-color: var(--app-dark-background-color, #303F9F);
           display: flex;
           justify-content: space-between;
           align-items: center;
-          background-color: #3f51b5;
           padding: 0 10px;
         }
 

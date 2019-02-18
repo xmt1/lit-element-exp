@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 
 import './components/app-nav.js';
+import './components/app-jumbotron.js';
 import './examples/docs-example.js';
 import '@polymer/iron-icons';
 import { SharedStyles } from './styles/shared-styles.js';
@@ -27,6 +28,7 @@ class PolymerLitApp extends LitElement {
   render() {
     return html`
       <app-nav></app-nav>
+      <app-jumbotron></app-jumbotron>
       <main class="container">
         <docs-example></docs-example>
       </main>

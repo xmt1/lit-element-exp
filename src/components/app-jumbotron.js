@@ -7,6 +7,12 @@ import '@polymer/paper-button';
 // Extend the LitElement base class
 class AppJumbotron extends LitElement {
 
+  static get properties() {
+    return {
+      jumbotronTitle: { type: String },
+    };
+  }
+
   static get styles() {
     return [
       SharedStyles,
@@ -41,18 +47,7 @@ class AppJumbotron extends LitElement {
     ];
   }
 
-  static get properties() {
-    return {
-      jumbotronTitle: { type: String },
-    };
-  }
-
-  constructor() {
-    super();
-    this.jumbotronTitle = 'LitElement Reference';
-  }
-
-  render(){
+  render() {
     return html`
     <header>
       <h1>${this.jumbotronTitle}</h1>
@@ -61,6 +56,11 @@ class AppJumbotron extends LitElement {
       </a>
     </header>
     `;
+  }
+
+  constructor() {
+    super();
+    this.jumbotronTitle = 'LitElement Reference';
   }
 }
 

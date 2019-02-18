@@ -7,6 +7,12 @@ import { LitElement, html, css } from 'lit-element';
 // Extend the LitElement base class
 class ExampleElement extends LitElement {
 
+  static get properties() {
+    return {
+      exampleProp: { type: String },
+    };
+  }
+
   /* If you're using a styles getter, 'css' must be extended from 'lit-element' */
   static get styles() {
     return [
@@ -19,10 +25,10 @@ class ExampleElement extends LitElement {
     ];
   }
 
-  static get properties() {
-    return {
-      exampleProp: { type: String },
-    };
+  render() {
+    return html`
+      <p>${this.exampleProp} works</p>
+    `;
   }
 
   constructor() {
@@ -30,11 +36,7 @@ class ExampleElement extends LitElement {
     this.exampleProp = this.tagName.toLowerCase();
   }
 
-  render(){
-    return html`
-      <p>${this.exampleProp} works</p>
-    `;
-  }
+  
 }
 
 customElements.define('example-element', ExampleElement);

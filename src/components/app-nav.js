@@ -4,16 +4,12 @@ import '@polymer/iron-icon'
 
 
 class AppNav extends LitElement {
+
   static get properties() {
     return {
       testProp: { type: String },
       navItems: { type: Array }
     };
-  }
-
-  constructor() {
-    super();
-    this.navItems = ['Dashboard', 'Resources', 'Examples']
   }
 
   static get styles() {
@@ -55,9 +51,9 @@ class AppNav extends LitElement {
         }
       `
     ];
-}
+  }
 
-  render(){
+  render() {
     return html`
       <nav>
         <div>
@@ -71,6 +67,12 @@ class AppNav extends LitElement {
       </nav>
     `;
   }
+
+  constructor() {
+    super();
+    this.navItems = ['Dashboard', 'Resources', 'Examples']
+  }
+  
 }
 
 customElements.define('app-nav', AppNav);

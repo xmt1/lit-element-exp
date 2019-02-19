@@ -62,7 +62,7 @@ class AppNav extends LitElement {
           </a>
         </div>
         <ul>
-          ${this.navItems.map(i => html`<li><a href="#">${i}</a></li>`)}
+          ${this.navItems.map(item => html`<li><a href="${item.link}">${item.name}</a></li>`)}
         </ul>
       </nav>
     `;
@@ -70,7 +70,11 @@ class AppNav extends LitElement {
 
   constructor() {
     super();
-    this.navItems = ['Dashboard', 'Resources', 'Examples']
+    this.navItems = [
+      {link: '/', name: 'Dashboard'},
+      {link: '/resources', name: 'Resources'},
+      {link: '/basic-examples', name: 'Examples'},
+    ]
   }
   
 }

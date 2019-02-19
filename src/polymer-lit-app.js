@@ -28,6 +28,14 @@ class PolymerLitApp extends LitElement {
         main {
           margin: 24px 0;
         }
+
+        .page {
+          display: none;
+        }
+
+        .page[active] {
+          display: block;
+        }
       `
     ];
   }
@@ -37,7 +45,8 @@ class PolymerLitApp extends LitElement {
       <app-nav></app-nav>
       <app-jumbotron></app-jumbotron>
       <main class="container">
-        <view-dashboard></view-dashboard>
+        <view-dashboard class="page" ?active="${this._page === 'dashboard'}"></view-dashboard>
+        <view-basic-examples class="page" ?active="${this._page === 'basic-examples'}"></view-basic-examples>
       </main>
     `;
   }
@@ -65,9 +74,9 @@ class PolymerLitApp extends LitElement {
           // navigating to view1 after my-view1.js is loaded.
         });
         break;
-      // case 'view2':
-      //   import('../components/my-view2.js');
-      //   break;
+      case 'basic-examples':
+        import('./views/view-basic-examples.js');
+        break;
       // case 'view3':
       //   import('../components/my-view3.js');
       //   break;

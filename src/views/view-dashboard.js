@@ -26,7 +26,7 @@ class ViewDashboard extends LitElement {
   render(){
     return html`
       <div class="cards">
-        <app-card link="https://lit-element.polymer-project.org/guide/lifecycle">
+        <app-card link="/basic-examples">
           <span slot="card-title">Basic Examples</span>
           <span slot="card-body">Starter template and basic examples based on the LitElement documentation</span>
         </app-card>

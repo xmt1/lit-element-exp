@@ -1,6 +1,8 @@
 import { LitElement, html, css } from 'lit-element';
 import { SharedStyles } from '../styles/shared-styles.js';
 
+import { bookIcon } from '../app-icons.js';
+
 
 import '@polymer/paper-button';
 
@@ -43,6 +45,10 @@ class AppJumbotron extends LitElement {
           background-color: var(--app-accent-color, #FF4081);
           margin: 24px 0;
         }
+
+        svg {
+          fill: #fff;
+        }
       `
     ];
   }
@@ -52,7 +58,7 @@ class AppJumbotron extends LitElement {
     <header>
       <h1>${this.jumbotronTitle}</h1>
       <a href="https://lit-element.polymer-project.org/guide">
-        <paper-button raised>Guide</paper-button>
+        <paper-button raised>${ bookIcon } Guide</paper-button>
       </a>
     </header>
     `;

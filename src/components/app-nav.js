@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import { SharedStyles } from '../styles/shared-styles.js';
-import '@polymer/iron-icon'
+import { accessibilityIcon } from '../app-icons.js';
 
 
 class AppNav extends LitElement {
@@ -36,10 +36,10 @@ class AppNav extends LitElement {
           display: flex;
         }
 
-        iron-icon {
+        svg {
           width: 36px;
           height: 36px;
-          color: #fff;
+          fill: #fff;
         }
 
         ul li {
@@ -54,15 +54,18 @@ class AppNav extends LitElement {
   }
 
   render() {
+
+    const navItems = this.navItems.map(item => html`<li><a href="${item.link}">${item.name}</a></li>`);
+
     return html`
       <nav>
         <div>
           <a href="#" aria-label="Home Page">
-            <iron-icon icon="accessibility"></iron-icon>
+            ${accessibilityIcon}
           </a>
         </div>
         <ul>
-          ${this.navItems.map(item => html`<li><a href="${item.link}">${item.name}</a></li>`)}
+          ${navItems}
         </ul>
       </nav>
     `;
